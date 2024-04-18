@@ -29,7 +29,7 @@ export async function removeContact(contactId) {
     return null;
   } else {
     const deletedData = contacts.splice(index, 1)[0];
-    await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 4));
+    await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
     return deletedData;
   }
 }
@@ -39,7 +39,7 @@ export async function addContact(name, email, phone) {
   const contact = { id: nanoid(), name, email, phone };
   contacts.push(contact);
   try {
-      await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 4));
+      await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
       return contact;
   } catch (error) {
     throw error;    
