@@ -15,11 +15,7 @@ export async function listContacts() {
 export async function getContactById(contactId) {
   const contacts = await listContacts();
   const res = contacts.filter((f) => f.id === contactId)[0];
-  if (res.length === 0) {
-    return null;
-  } else {
-    return res;
-  }
+  return res ? res : null;
 }
 
 export async function removeContact(contactId) {
